@@ -24,7 +24,7 @@ export class ShoppingCart{
         this.account = account
     }
 
-    public ToString ():string{
-        return `ShoppingCart[created=${this.created},account=${this.account.toString}]`
+    public toString ():string{
+        return `ShoppingCart=[created=${this.created},account=${this.account.toString}]`
     }
 }

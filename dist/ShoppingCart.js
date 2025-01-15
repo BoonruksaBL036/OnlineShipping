@@ -18,8 +18,8 @@ class ShoppingCart {
     setAccount(account) {
         this.account = account;
     }
-    ToString() {
-        return `ShoppingCart[created=${this.created},account=${this.account.toString}]`;
+    toString() {
+        return `ShoppingCart=[created=${this.created},account=${this.account.toString}]`;
     }
 }
 exports.ShoppingCart = ShoppingCart;

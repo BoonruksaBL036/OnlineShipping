@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Order = void 0;
+const OrderStatus_1 = require("./OrderStatus");
 class Order {
     constructor(number, ordered, shipped, ship_to, status, total) {
         this.lineItem = [];
@@ -8,8 +9,8 @@ class Order {
         this.ordered = ordered;
         this.shipped = shipped;
         this.ship_to = ship_to;
-        this.status = status;
-        this.total = total;
+        this.status = OrderStatus_1.OrderStatus.NEW;
+        this.total = 0;
     }
     getNumber() {
         return this.number;
@@ -47,13 +48,13 @@ class Order {
     setTotal(total) {
         this.total = total;
     }
-    getLineItem() {
-        return this.lineItem;
+    CalcSubTotal() {
+        return this.lineItem.reduce((sum, Item) => sum + Item.CalcToTal(), 0);
     }
     addLineItem(lineItem) {
         this.lineItem.push(lineItem);
     }
-    ToString() {
+    toString() {
         return `Order=[number=${this.number},ordered=${this.ordered},shipped=${this.shipped},ship_to=${this.ship_to},status=${this.status},total=${this.total},lineItem=${this.lineItem.forEach(item => item.toString())}]`;
     }
 }

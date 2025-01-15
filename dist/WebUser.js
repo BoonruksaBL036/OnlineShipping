@@ -2,11 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WebUser = void 0;
 class WebUser {
-    constructor(login_id, password, state, shoppingCart) {
+    // private shoppingCart : ShoppingCart
+    constructor(login_id, password, state) {
         this.login_id = login_id;
         this.password = password;
         this.state = state;
-        this.shoppingCart = shoppingCart;
+        // this.shoppingCart = shoppingCart
     }
     getLogin_id() {
         return this.login_id;
@@ -26,14 +27,14 @@ class WebUser {
     setState(state) {
         this.state = state;
     }
-    getShoppingCart() {
-        return this.shoppingCart;
-    }
-    setShoppingCart(shoppingCart) {
-        this.shoppingCart = shoppingCart;
-    }
+    // public getShoppingCart():ShoppingCart{
+    //     return this.shoppingCart
+    // }
+    // public setShoppingCart(shoppingCart:ShoppingCart):void{
+    //     this.shoppingCart = shoppingCart
+    // }
     toString() {
-        return `WebUser=[login_id=${this.login_id},password=${this.password},state=${this.state},shoppingCart=${this.shoppingCart.ToString}]`;
+        return `WebUser=[login_id=${this.login_id},password=${this.password},state=${this.state}}]`;
     }
 }
 exports.WebUser = WebUser;

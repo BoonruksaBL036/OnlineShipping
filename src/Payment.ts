@@ -40,7 +40,7 @@ export class Payment{
     }
 
     // public ToS
-    tring():string{
+    public toString():string{
         return `Payment[id=${this.id},paid=${this.paid},total=${this.total},details=${this.details}]`
     }
 }

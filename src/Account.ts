@@ -65,6 +65,6 @@ export class Account{
     }
 
     public toString():string{
-        return `Account=[id=${this.id},customer=${this.customer.toString()},billing=${this.billing},is_closed=${this.is_closed},open=${this.open},closed=${this.closed},payment=${this.payment.ToString()}]`
+        return `Account=[id=${this.id},customer=${this.customer.toString()},billing=${this.billing},is_closed=${this.is_closed},open=${this.open},closed=${this.closed},payment=${this.payment.toString()}]`
     }
 }

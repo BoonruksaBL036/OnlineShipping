@@ -30,7 +30,7 @@ class Payment {
         this.details = details;
     }
     // public ToS
-    tring() {
+    toString() {
         return `Payment[id=${this.id},paid=${this.paid},total=${this.total},details=${this.details}]`;
     }
 }

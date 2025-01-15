@@ -4,13 +4,13 @@ export class WebUser{
     private login_id : string
     private password : string
     private state : UserState
-    private shoppingCart : ShoppingCart
+    // private shoppingCart : ShoppingCart
 
-    constructor (login_id:string,password:string,state:UserState,shoppingCart:ShoppingCart){
+    constructor (login_id:string,password:string,state:UserState){
         this.login_id = login_id
         this.password = password
         this.state = state
-        this.shoppingCart = shoppingCart
+        // this.shoppingCart = shoppingCart
     }
 
     public getLogin_id():string{
@@ -37,15 +37,15 @@ export class WebUser{
         this.state = state
     }
 
-    public getShoppingCart():ShoppingCart{
-        return this.shoppingCart
-    }
+    // public getShoppingCart():ShoppingCart{
+    //     return this.shoppingCart
+    // }
 
-    public setShoppingCart(shoppingCart:ShoppingCart):void{
-        this.shoppingCart = shoppingCart
-    }
+    // public setShoppingCart(shoppingCart:ShoppingCart):void{
+    //     this.shoppingCart = shoppingCart
+    // }
 
     public toString():string{
-        return `WebUser=[login_id=${this.login_id},password=${this.password},state=${this.state},shoppingCart=${this.shoppingCart.ToString}]`
+        return `WebUser=[login_id=${this.login_id},password=${this.password},state=${this.state}}]`
     }
 }
