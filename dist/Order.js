@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Order = void 0;
 const OrderStatus_1 = require("./OrderStatus");
 class Order {
-    constructor(number, ordered, shipped, ship_to, status, total) {
+    constructor(number, ordered, shipped, ship_to, status, total, lineItem) {
         this.lineItem = [];
         this.number = number;
         this.ordered = ordered;
@@ -55,7 +55,7 @@ class Order {
         this.lineItem.push(lineItem);
     }
     toString() {
-        return `Order=[number=${this.number},ordered=${this.ordered},shipped=${this.shipped},ship_to=${this.ship_to},status=${this.status},total=${this.total},lineItem=${this.lineItem.forEach(item => item.toString())}]`;
+        return `Order=[number=${this.number},ordered=${this.ordered},shipped=${this.shipped},ship_to=${this.ship_to},status=${this.status},total=${this.total},lineItem=${this.lineItem.map(item => item.toString())}]`;
     }
 }
 exports.Order = Order;

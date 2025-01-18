@@ -9,7 +9,7 @@ export class Order {
     private total: number
     private lineItem: LineItem[] = []
 
-    constructor(number: string, ordered: string, shipped: string, ship_to: string, status: OrderStatus, total: number) {
+    constructor(number: string, ordered: string, shipped: string, ship_to: string, status: OrderStatus, total: number,lineItem: LineItem) {
         this.number = number;
         this.ordered = ordered;
         this.shipped = shipped;
@@ -76,6 +76,6 @@ export class Order {
     }
 
     public toString(): string {
-        return `Order=[number=${this.number},ordered=${this.ordered},shipped=${this.shipped},ship_to=${this.ship_to},status=${this.status},total=${this.total},lineItem=${this.lineItem.forEach(item => item.toString())}]`;
+        return `Order=[number=${this.number},ordered=${this.ordered},shipped=${this.shipped},ship_to=${this.ship_to},status=${this.status},total=${this.total},lineItem=${this.lineItem.map(item => item.toString())}]`;
     }
 }
