@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Account = void 0;
 class Account {
-    constructor(id, customer, billing, is_closed, open, closed, payment) {
+    constructor(id, customer, billing, is_closed, open, closed, payment, shoppingCart, order = []) {
+        this.order = [];
         this.id = id;
         this.customer = customer;
         this.billing = billing;
@@ -10,6 +11,11 @@ class Account {
         this.open = open;
         this.closed = closed;
         this.payment = payment;
+        this.shoppingCart = shoppingCart;
+        this.order = order;
+    }
+    getCustomer() {
+        return this.customer;
     }
     getId() {
         return this.id;
@@ -44,8 +50,21 @@ class Account {
     setPayment(payment) {
         this.payment = payment;
     }
+    getShippingCart() {
+        return this.shoppingCart;
+    }
+    setShippingCart(shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
+    getOrder() {
+        return this.order;
+    }
+    addOrder(order) {
+        this.order.push(order);
+    }
     toString() {
-        return `Account=[id=${this.id},customer=${this.customer.toString()},billing=${this.billing},is_closed=${this.is_closed},open=${this.open},closed=${this.closed},payment=${this.payment.toString()}]`;
+        return `Account=[id=${this.id},customer=${this.customer.toString()},billing=${this.billing},is_closed=${this.is_closed},open=${this.open},closed=${this.closed},payment=${this.payment.toString()},shoppingCart = ${this.shoppingCart.toString()}
+    }]`;
     }
 }
 exports.Account = Account;

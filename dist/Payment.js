@@ -5,7 +5,7 @@ class Payment {
     constructor(id, paid, total, details) {
         this.id = id;
         this.paid = paid;
-        this.total = total;
+        this.total = 0;
         this.details = details;
     }
     getId() {
@@ -29,7 +29,6 @@ class Payment {
     setDetails(details) {
         this.details = details;
     }
-    // public ToS
     toString() {
         return `Payment[id=${this.id},paid=${this.paid},total=${this.total},details=${this.details}]`;
     }

@@ -29,7 +29,7 @@ class LineItem {
         return this.price * this.quantity;
     }
     toString() {
-        return `LineItem=[quantity=${this.quantity}, price=${this.price}, product=${this.product.toString()}]`;
+        return `LineItem=[quantity=${this.quantity}, price=${this.price} THB, product=${this.product.toString()}]`;
     }
 }
 exports.LineItem = LineItem;

@@ -2,9 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ShoppingCart = void 0;
 class ShoppingCart {
-    constructor(created, account) {
+    constructor(created) {
         this.created = created;
-        this.account = account;
     }
     getCreated() {
         return this.created;
@@ -12,14 +11,8 @@ class ShoppingCart {
     setCreated(created) {
         this.created = created;
     }
-    getAccount() {
-        return this.account;
-    }
-    setAccount(account) {
-        this.account = account;
-    }
     toString() {
-        return `ShoppingCart=[created=${this.created},account=${this.account.toString}]`;
+        return `ShoppingCart=[created=${this.created}]`;
     }
 }
 exports.ShoppingCart = ShoppingCart;

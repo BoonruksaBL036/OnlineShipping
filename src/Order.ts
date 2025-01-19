@@ -9,7 +9,7 @@ export class Order {
     private total: number
     private lineItem: LineItem[] = []
 
-    constructor(number: string, ordered: string, shipped: string, ship_to: string, status: OrderStatus, total: number,lineItem: LineItem) {
+    constructor(number: string, ordered: string, shipped: string, ship_to: string, status: OrderStatus, total: number, lineItem: LineItem) {
         this.number = number;
         this.ordered = ordered;
         this.shipped = shipped;
@@ -67,13 +67,22 @@ export class Order {
         this.total = total
     }
 
-    public CalcSubTotal():number{
-        return this.lineItem.reduce((sum,Item)=>sum + Item.CalcToTal(),0)
+    public CalcSubTotal(): number {
+        let total = 0;
+        for (let i = 0; i < this.lineItem.length; i++) {
+            total += this.lineItem[i].getQuantity() * this.lineItem[i].getPrice();
+        }
+        return total;
     }
 
     public addLineItem(lineItem: LineItem): void {
         this.lineItem.push(lineItem)
     }
+    
+    // public getDisplayProduct():string{
+    //     const DisplayProduct = this.lineItem.map(item=>item.getProduct().getName()).join(",");
+    //     return DisplayProduct
+    // }
 
     public toString(): string {
         return `Order=[number=${this.number},ordered=${this.ordered},shipped=${this.shipped},ship_to=${this.ship_to},status=${this.status},total=${this.total},lineItem=${this.lineItem.map(item => item.toString())}]`;

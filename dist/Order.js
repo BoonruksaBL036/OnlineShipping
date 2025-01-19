@@ -49,11 +49,19 @@ class Order {
         this.total = total;
     }
     CalcSubTotal() {
-        return this.lineItem.reduce((sum, Item) => sum + Item.CalcToTal(), 0);
+        let total = 0;
+        for (let i = 0; i < this.lineItem.length; i++) {
+            total += this.lineItem[i].getQuantity() * this.lineItem[i].getPrice();
+        }
+        return total;
     }
     addLineItem(lineItem) {
         this.lineItem.push(lineItem);
     }
+    // public getDisplayProduct():string{
+    //     const DisplayProduct = this.lineItem.map(item=>item.getProduct().getName()).join(",");
+    //     return DisplayProduct
+    // }
     toString() {
         return `Order=[number=${this.number},ordered=${this.ordered},shipped=${this.shipped},ship_to=${this.ship_to},status=${this.status},total=${this.total},lineItem=${this.lineItem.map(item => item.toString())}]`;
     }

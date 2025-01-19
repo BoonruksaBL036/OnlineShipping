@@ -39,6 +39,6 @@ export class LineItem {
     }
 
     public toString(): string {
-        return `LineItem=[quantity=${this.quantity}, price=${this.price}, product=${this.product.toString()}]`;
+        return `LineItem=[quantity=${this.quantity}, price=${this.price} THB, product=${this.product.toString()}]`;
     }
 }

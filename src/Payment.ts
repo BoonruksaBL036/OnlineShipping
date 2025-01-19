@@ -7,7 +7,7 @@ export class Payment{
     constructor (id:string,paid:string,total:number,details:string){
         this.id = id
         this.paid = paid
-        this.total = total
+        this.total = 0;
         this.details = details
     }
 
@@ -23,11 +23,11 @@ export class Payment{
         this.paid = paid
     }
 
-    public getTotal():number{
+    public getTotal(): number {
         return this.total
     }
 
-    public setTotal(total:number):void{
+    public setTotal(total: number): void {
         this.total = total
     }
 
@@ -39,7 +39,6 @@ export class Payment{
         this.details = details
     }
 
-    // public ToS
     public toString():string{
         return `Payment[id=${this.id},paid=${this.paid},total=${this.total},details=${this.details}]`
     }
