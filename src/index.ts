@@ -96,3 +96,4 @@ console.log(shoppingCart1.toString(),order1)
 payment1.setTotal(order1.getTotal());
 console.log(payment1.toString());
 //
+//
