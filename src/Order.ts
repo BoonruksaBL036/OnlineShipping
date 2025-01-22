@@ -1,5 +1,7 @@
 import { OrderStatus } from "./OrderStatus";
 import { LineItem } from './Lineltem';
+import { Payment } from "./Payment";
+import path from "path";
 export class Order {
     private number: string
     private ordered: string
@@ -8,6 +10,7 @@ export class Order {
     private status: OrderStatus
     private total: number
     private lineItem: LineItem[] = []
+    private payment: Payment[] = []
 
     constructor(number: string, ordered: string, shipped: string, ship_to: string, status: OrderStatus, total: number, lineItem: LineItem) {
         this.number = number;
@@ -79,10 +82,13 @@ export class Order {
         this.lineItem.push(lineItem)
     }
     
-    // public getDisplayProduct():string{
-    //     const DisplayProduct = this.lineItem.map(item=>item.getProduct().getName()).join(",");
-    //     return DisplayProduct
-    // }
+    public getPayment():Payment []{
+        return this.payment
+    }
+
+    public addPayment(payment:Payment):void{
+        this.payment.push(payment)
+    }
 
     public toString(): string {
         return `Order=[number=${this.number},ordered=${this.ordered},shipped=${this.shipped},ship_to=${this.ship_to},status=${this.status},total=${this.total},lineItem=${this.lineItem.map(item => item.toString())}]`;

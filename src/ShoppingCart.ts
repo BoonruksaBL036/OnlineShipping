@@ -1,5 +1,7 @@
+import { LineItem } from "./Lineltem"
 export class ShoppingCart{
     private created : string
+    private lineItem : LineItem[]=[]
 
     constructor (created:string){
         this.created = created
@@ -13,7 +15,20 @@ export class ShoppingCart{
         this.created = created
     }
 
+    public getLineItems():LineItem [] {
+        return this.lineItem
+    }
+
+    public addLineItem(item:LineItem | LineItem []):void{
+        if(Array.isArray(item)){
+            const add = item.flat()
+            this.lineItem.push(...add)
+        }else{
+            this.lineItem.push(item);
+        }
+    }
+
     public toString ():string{
-        return `ShoppingCart=[created=${this.created}]`
+        return `ShoppingCart=[created=${this.created},lineitem=${this.lineItem}]`
     }
 }

@@ -5,6 +5,7 @@ const OrderStatus_1 = require("./OrderStatus");
 class Order {
     constructor(number, ordered, shipped, ship_to, status, total, lineItem) {
         this.lineItem = [];
+        this.payment = [];
         this.number = number;
         this.ordered = ordered;
         this.shipped = shipped;
@@ -58,10 +59,12 @@ class Order {
     addLineItem(lineItem) {
         this.lineItem.push(lineItem);
     }
-    // public getDisplayProduct():string{
-    //     const DisplayProduct = this.lineItem.map(item=>item.getProduct().getName()).join(",");
-    //     return DisplayProduct
-    // }
+    getPayment() {
+        return this.payment;
+    }
+    addPayment(payment) {
+        this.payment.push(payment);
+    }
     toString() {
         return `Order=[number=${this.number},ordered=${this.ordered},shipped=${this.shipped},ship_to=${this.ship_to},status=${this.status},total=${this.total},lineItem=${this.lineItem.map(item => item.toString())}]`;
     }

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Payment = void 0;
 class Payment {
-    constructor(id, paid, total, details) {
+    constructor(id, paid, details) {
         this.id = id;
         this.paid = paid;
         this.total = 0;

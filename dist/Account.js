@@ -1,21 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Account = void 0;
+const ShoppingCart_1 = require("./ShoppingCart");
 class Account {
-    constructor(id, customer, billing, is_closed, open, closed, payment, shoppingCart, order = []) {
-        this.order = [];
+    constructor(id, billing, is_closed, open, closed) {
+        this.payments = [];
+        this.orders = [];
         this.id = id;
-        this.customer = customer;
         this.billing = billing;
         this.is_closed = is_closed;
         this.open = open;
         this.closed = closed;
-        this.payment = payment;
-        this.shoppingCart = shoppingCart;
-        this.order = order;
-    }
-    getCustomer() {
-        return this.customer;
+        this.shoppingCart = new ShoppingCart_1.ShoppingCart("16/01/2025");
     }
     getId() {
         return this.id;
@@ -45,10 +41,10 @@ class Account {
         this.closed = closed;
     }
     getPayment() {
-        return this.payment;
+        return this.payments;
     }
-    setPayment(payment) {
-        this.payment = payment;
+    addPayment(payment) {
+        this.payments.push(payment);
     }
     getShippingCart() {
         return this.shoppingCart;
@@ -56,14 +52,14 @@ class Account {
     setShippingCart(shoppingCart) {
         this.shoppingCart = shoppingCart;
     }
-    getOrder() {
-        return this.order;
+    getOrders() {
+        return this.orders;
     }
-    addOrder(order) {
-        this.order.push(order);
+    addOrders(order) {
+        this.orders.push(order);
     }
     toString() {
-        return `Account=[id=${this.id},customer=${this.customer.toString()},billing=${this.billing},is_closed=${this.is_closed},open=${this.open},closed=${this.closed},payment=${this.payment.toString()},shoppingCart = ${this.shoppingCart.toString()}
+        return `Account=[id=${this.id},billing=${this.billing},is_closed=${this.is_closed},open=${this.open},closed=${this.closed},payment=${this.payments.toString()},shoppingCart = ${this.shoppingCart.toString()}
     }]`;
     }
 }

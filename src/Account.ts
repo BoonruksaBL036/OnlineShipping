@@ -1,34 +1,25 @@
 import { Order } from './Order';
-import { Customer } from './Customer';
 import { Payment } from './Payment';
 import { ShoppingCart } from './ShoppingCart';
 
 export class Account {
     private id: string
-    private customer: Customer
     private billing: string
     private is_closed: boolean
     private open: string
     private closed: string
-    private payment: Payment
+    private payments: Payment[] = []
     private shoppingCart: ShoppingCart
-    private order: Order[] = []
+    private orders: Order[] = []
 
-    constructor(id: string, customer: Customer, billing: string, is_closed: boolean, open: string, closed: string, payment: Payment, shoppingCart: ShoppingCart, order: Order[] = []) {
+    constructor(id: string, billing: string, is_closed: boolean, open: string, closed: string) {
         this.id = id
-        this.customer = customer
         this.billing = billing
         this.is_closed = is_closed
         this.open = open
         this.closed = closed
-        this.payment = payment
-        this.shoppingCart = shoppingCart
-        this.order = order
+        this.shoppingCart = new ShoppingCart ("16/01/2025");
     }
-
-    public getCustomer():Customer {
-        return this.customer; 
-  }
 
     public getId(): string {
         return this.id
@@ -66,12 +57,12 @@ export class Account {
         this.closed = closed
     }
 
-    public getPayment(): Payment {
-        return this.payment
+    public getPayment(): Payment[] {
+        return this.payments
     }
 
-    public setPayment(payment: Payment): void {
-        this.payment = payment
+    public addPayment(payment: Payment): void {
+        this.payments.push(payment)
     }
 
     public getShippingCart(): ShoppingCart {
@@ -82,16 +73,16 @@ export class Account {
         this.shoppingCart = shoppingCart
     }
 
-    public getOrder():Order[] {
-        return this.order
+    public getOrders():Order[] {
+        return this.orders
     }
 
-    public addOrder(order:Order):void{
-        this.order.push(order)
+    public addOrders(order:Order):void{
+        this.orders.push(order)
     }
 
     public toString(): string {
-        return `Account=[id=${this.id},customer=${this.customer.toString()},billing=${this.billing},is_closed=${this.is_closed},open=${this.open},closed=${this.closed},payment=${this.payment.toString()},shoppingCart = ${ this.shoppingCart.toString() }
+        return `Account=[id=${this.id},billing=${this.billing},is_closed=${this.is_closed},open=${this.open},closed=${this.closed},payment=${this.payments.toString()},shoppingCart = ${ this.shoppingCart.toString() }
     }]`
     }
 }

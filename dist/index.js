@@ -74,9 +74,9 @@ const OrderStatus_1 = require("./OrderStatus");
 //shippingcart&order
 const shoppingCart1 = new ShoppingCart_1.ShoppingCart("16/01/2025");
 const webUser1 = new WebUser_1.WebUser("BL", "boon1234", UserState_1.UserState.NEW, shoppingCart1);
-const customer1 = new Customer_1.Customer("01", webUser1, "Nakhon Pathom", 820629587, "test1@gmail.com");
-const payment1 = new Payment_1.Payment("PY1", "17/01/2025", 0, "credit");
-const account1 = new Account_1.Account("07", customer1, "Nakhon Pathom", true, "8:00", "18:00", payment1, shoppingCart1);
+const account1 = new Account_1.Account("07", "Nakhon Pathom", true, "01/01/2025", "30/01/2025");
+const customer1 = new Customer_1.Customer("01", webUser1, "Nakhon Pathom", 820629587, "test1@gmail.com", account1);
+const payment1 = new Payment_1.Payment("PY1", "17/01/2025", "credit");
 const product1 = new Product_1.Product("01", "ปากกา", "Stationery Store");
 const product2 = new Product_1.Product("02", "ดินสอ", "Stationery Store");
 const quantity1 = new Lineltem_1.LineItem(4, 10, product1.getName());
@@ -85,7 +85,7 @@ const order1 = new Order_1.Order("od01", "17/01/2025", "20/01/2025", "Nakhon Pat
 order1.addLineItem(quantity1);
 order1.addLineItem(quantity2);
 order1.setTotal(order1.CalcSubTotal());
-account1.addOrder(order1);
+account1.addOrders(order1);
 console.log(webUser1.getLogin_id());
 console.log(shoppingCart1.toString(), order1);
 payment1.setTotal(order1.getTotal());

@@ -4,7 +4,7 @@ export class Payment{
     private total : number
     private details : string
 
-    constructor (id:string,paid:string,total:number,details:string){
+    constructor (id:string,paid:string,details:string){
         this.id = id
         this.paid = paid
         this.total = 0;
